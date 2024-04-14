@@ -22,3 +22,6 @@ tcpdump等でパケット解析すれば、もっとコマンドが見つかる�
 
 # 2024.4.14　追記
 IP: 192.168.1.23
+
+# 参考ブログ
+https://deathon2legs.blogspot.com/2018/02/bestekmapi.html
