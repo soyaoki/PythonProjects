@@ -73,8 +73,7 @@ class CleaningRobotNode(Node):
         polygons_data = self.send_request(url_polygons)
         polygons = polygons_data.get('map').get('polygons')
 
-        # for文
-        l=len(polygons)
+        l = len(polygons)
         for i in range(0,l):
             x = []
             y = []
