@@ -67,7 +67,28 @@ class CleaningRobotNode(Node):
             x2 = line.get('x2')
             y2 = line.get('y2')
             plt.plot([x1, x2], [y1, y2],color='gray')
-        plt.plot([docking_pose.get('x')],[docking_pose.get('y')],marker="D",markersize=6) #ドック
+        plt.plot([docking_pose.get('x')], [docking_pose.get('y')], marker="D", markersize=6) #ドック
+
+        url_polygons = 'http://192.168.1.23:10009/get/n_n_polygons'
+        polygons_data = self.send_request(url_polygons)
+        polygons = polygons_data.get('map').get('polygons')
+
+        # for文
+        l=len(polygons)
+        for i in range(0,l):
+            x = []
+            y = []
+            seg = polygons[i].get('segments')
+            m = len(seg)
+            for ii in range(0,m):
+                x1 = seg[ii].get('x1')
+                y1 = seg[ii].get('y1')
+                x2 = seg[ii].get('x2')
+                y2 = seg[ii].get('y2')
+                x = [x1,x2]
+                y = [y1,y2]
+                plt.plot(x, y, color='gray')
+
     
     # ロボットの位置を取得し、現在位置を描画する関数
     def draw_robot_position(self):
